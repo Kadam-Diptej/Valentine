@@ -67,6 +67,23 @@
           transform: scale(1.05);
           box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
+
+        .chocolate {
+  position: fixed;
+  top: -40px;
+  font-size: 24px;
+  animation: fall linear forwards;
+  z-index: 0;
+  pointer-events: none;
+}
+
+        @keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0.9;
+  }
+}
+        
     </style>
 </head>
 
@@ -117,6 +134,26 @@
       `;
       gif.src = "https://media1.tenor.com/m/SchnayqCPDQAAAAC/sorry-food.gif";
     };
+
+    function startChocolateRain() {
+  setInterval(() => {
+    const choco = document.createElement("div");
+    choco.className = "chocolate";
+    choco.innerHTML = "🍫";
+    choco.style.left = Math.random() * window.innerWidth + "px";
+    choco.style.animationDuration = (Math.random() * 2 + 3) + "s";
+
+    document.body.appendChild(choco);
+
+    setTimeout(() => {
+      choco.remove();
+    }, 5000);
+  }, 300);
+}
+
+    // start chocolates as soon as page loads
+startChocolateRain();
+    
 </script>
 
 </body>
