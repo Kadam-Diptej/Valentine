@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Still You 😌💍</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
@@ -14,96 +13,60 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
-    .container {
-      text-align: center;
-      background: rgba(255,255,255,0.9);
+    .box {
+      background: white;
       padding: 40px;
       border-radius: 20px;
+      text-align: center;
       max-width: 90%;
     }
     h1 { color: #6a0572; }
-    p { color: #444; line-height: 1.6; }
-    img {
-      width: 240px;
-      border-radius: 15px;
-      margin: 25px 0;
-    }
+    p { line-height: 1.6; }
     button {
-      padding: 12px 24px;
-      border: none;
+      padding: 12px 25px;
       border-radius: 30px;
+      border: none;
       font-size: 1.05rem;
-      cursor: pointer;
       margin: 8px;
+      cursor: pointer;
     }
     #yes { background: #ff4d6d; color: white; }
-    #already { background: #adb5bd; }
-    .rings { position: fixed; inset: 0; pointer-events: none; }
-    .ring {
-      position: absolute;
-      bottom: -20px;
-      font-size: 28px;
-      animation: floatUp 4s linear forwards;
-    }
-    @keyframes floatUp {
-      to { transform: translateY(-110vh); opacity: 0; }
-    }
+    #no { background: #adb5bd; }
   </style>
 </head>
 <body>
 
-<div class="container">
+<div class="box">
   <h1 id="title">I was thinking… 🤔💍</h1>
-
   <p id="text">
     We’ve lived at least 7 births together.<br>
-    Seen each other at our best… and worst 😌<br>
-    And somehow, I still smile every day.
+    Seen the best. Seen the worst 😌<br>
+    And somehow… I still smile every day.
   </p>
 
-  <img id="gif"
-    src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
-  />
-
-  <div>
-    <button id="yes">Still choose you ❤️</button>
-    <button id="already">You already did 😏</button>
-  </div>
+  <button id="yes">Still choose you ❤️</button>
+  <button id="no">You already did 😏</button>
 </div>
 
-<div class="rings" id="rings"></div>
-
 <script>
-  const yes = document.getElementById("yes");
-  const already = document.getElementById("already");
   const title = document.getElementById("title");
   const text = document.getElementById("text");
-  const gif = document.getElementById("gif");
-  const rings = document.getElementById("rings");
 
-  yes.onclick = () => {
-    title.textContent = "Last birth. Same choice. You 😌💖";
+  document.getElementById("yes").onclick = () => {
+    title.textContent = "Last birth. Same choice 😌💖";
     text.innerHTML = `
       Knowing everything…<br>
       every fight, every laugh,<br>
       I’d still marry you again ❤️
     `;
-    gif.src = "https://media.giphy.com/media/3oriO6qJiXajN0TyDu/giphy.gif";
-    yes.style.display = already.style.display = "none";
-    setInterval(() => {
-      const r = document.createElement("div");
-      r.className = "ring";
-      r.textContent = "💍";
-      r.style.left = Math.random() * 100 + "vw";
-      rings.appendChild(r);
-      setTimeout(() => r.remove(), 4000);
-    }, 400);
   };
 
-  already.onclick = () => {
-    text.innerHTML = "True 😌<br>But I’ll still keep choosing you.";
+  document.getElementById("no").onclick = () => {
+    text.innerHTML = `
+      True 😌<br>
+      But I’ll still keep choosing you.
+    `;
   };
 </script>
 
