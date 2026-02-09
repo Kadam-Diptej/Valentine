@@ -1,108 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>No Refunds 😏💍</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    margin:0;
-    height:100vh;
-    font-family:'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    position:relative;
-  }
+    <meta charset="UTF-8">
+    <title>Still You 😏💍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  .box {
-    background: rgba(255,255,255,0.95);
-    padding:40px;
-    border-radius:20px;
-    text-align:center;
-    max-width:90%;
-    position:relative;
-    z-index:1;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
-  }
+    <style>
+        body {
+          margin:0;
+          height:100vh;
+          font-family:'Poppins',sans-serif;
+          background: linear-gradient(135deg,#ff9a9e,#fbc2eb,#a6c1ee);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          overflow:hidden;
+        }
 
-  h1 { color:#e63946; }
-  p { line-height:1.6; }
+        .box {
+          background: rgba(255,255,255,0.96);
+          padding:40px;
+          border-radius:22px;
+          text-align:center;
+          max-width:380px;
+          box-shadow:0 20px 40px rgba(0,0,0,0.2);
+        }
 
-  button {
-    padding:12px 25px;
-    border-radius:30px;
-    border:none;
-    font-size:1.05rem;
-    margin:8px;
-    cursor:pointer;
-  }
-  #yes { background:#ff4d6d; color:white; }
-  #no { background:#495057; color:white; }
+        h1 {
+          color:#6a0572;
+          margin-bottom:15px;
+        }
 
-  /* Floating hearts */
-  .heart {
-    position:absolute;
-    font-size:24px;
-    animation:floatUp 5s linear forwards;
-    pointer-events:none;
-  }
+        p {
+          line-height:1.6;
+          margin-bottom:20px;
+          color:#444;
+        }
 
-  @keyframes floatUp {
-    0% { transform:translateY(0) scale(1); opacity:1; }
-    100% { transform:translateY(-110vh) scale(1.5); opacity:0; }
-  }
+        img {
+          width:220px;
+          border-radius:16px;
+          margin-bottom:20px;
+        }
 
-  img { width:200px; border-radius:15px; margin:20px 0; }
-</style>
+        button {
+          padding:12px 26px;
+          border-radius:30px;
+          border:none;
+          font-size:1rem;
+          margin:8px;
+          cursor:pointer;
+          transition:transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #yes {
+          background:#ff4d6d;
+          color:white;
+        }
+
+        #no {
+          background:#6c757d;
+          color:white;
+        }
+
+        button:hover {
+          transform:scale(1.05);
+          box-shadow:0 6px 15px rgba(0,0,0,0.15);
+        }
+    </style>
 </head>
+
 <body>
 
 <div class="box">
-  <h1 id="title">Serious Question 😏💍</h1>
-  <p id="text">
-    7 births. Countless fights.<br>
-    “I’m fine” arguments.<br>
-    Still married. Still alive.<br><br>
-    Knowing all this…
-  </p>
+    <h1 id="title">I was thinking… 😏💍</h1>
 
-  <img id="gif" src="https://media.giphy.com/media/l0MYC0LajbaPoEADu/giphy.gif" alt="funny married gif">
+    <p id="text">
+        We’ve lived at least 7 births together.<br>
+        Seen the best. Seen the worst.<br>
+        Fought over nonsense. Made up anyway 😌<br><br>
+        And somehow… I still choose you.
+    </p>
 
-  <div>
-    <button id="yes">Still choose you 😌</button>
-    <button id="no">Any escape? 😏</button>
-  </div>
+    <!-- Landing GIF (soft waiting + thinking vibe) -->
+    <img id="gif"
+         src="https://media1.tenor.com/m/LHXKjhLyaZEAAAAC/superbad-look-around.gif"
+         alt="thinking love gif">
+
+    <div>
+        <button id="yes">Still choose you ❤️</button>
+        <button id="no">Any escape? 😏</button>
+    </div>
 </div>
 
 <script>
-const title=document.getElementById("title");
-const text=document.getElementById("text");
+    const title = document.getElementById("title");
+    const text  = document.getElementById("text");
+    const gif   = document.getElementById("gif");
 
-document.getElementById("yes").onclick=()=>{
-  title.textContent="No regrets. Unfortunately 😏❤️";
-  text.innerHTML=`No refunds.<br>No exchanges.<br>Lifetime contract renewed 💍<br><br>I’d still marry you again ❤️`;
-  spawnHearts();
-};
+    document.getElementById("yes").onclick = () => {
+      title.textContent = "No regrets. Unfortunately 😌💍";
+      text.innerHTML = `
+        Knowing everything…<br>
+        every fight, every laugh,<br>
+        every “I’m fine” moment 😏<br><br>
+        I’d still marry you again ❤️
+      `;
+      gif.src = "https://media1.tenor.com/m/bDnLivil00YAAAAC/pokemon-poke-ball.gif";
+    };
 
-document.getElementById("no").onclick=()=>{
-  text.innerHTML=`Sorry 😌<br>Contract signed across all 7 births.<br>You’re stuck with me 💍`;
-};
-
-// Floating hearts function
-function spawnHearts() {
-  setInterval(()=>{
-    const heart=document.createElement("div");
-    heart.className="heart";
-    heart.textContent="💖";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.fontSize=Math.random()*20+20+"px";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),5000);
-  },300);
-}
+    document.getElementById("no").onclick = () => {
+      title.textContent = "Nice try 😏";
+      text.innerHTML = `
+        Sorry 😌<br>
+        No refunds. No exchanges.<br>
+        Lifetime contract renewed 💍<br><br>
+        You’re stuck with me ❤️
+      `;
+      gif.src = "https://media1.tenor.com/m/wgC8wrOQ6LcAAAAd/escape-stuck.gif";
+    };
 </script>
 
 </body>
