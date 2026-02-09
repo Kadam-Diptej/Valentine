@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chocolate Day 🍫❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+          margin: 0;
+          height: 100vh;
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(135deg, #7b3f00, #d2691e, #f7c59f);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+
+        .box {
+          background: rgba(255, 255, 255, 0.96);
+          padding: 38px;
+          border-radius: 22px;
+          text-align: center;
+          max-width: 380px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+
+        h1 {
+          color: #7b3f00;
+          margin-bottom: 15px;
+        }
+
+        p {
+          color: #4a2c2a;
+          line-height: 1.6;
+          margin-bottom: 20px;
+        }
+
+        img {
+          width: 220px;
+          border-radius: 16px;
+          margin-bottom: 20px;
+        }
+
+        button {
+          padding: 12px 26px;
+          border-radius: 30px;
+          border: none;
+          font-size: 1rem;
+          margin: 8px;
+          cursor: pointer;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #yes {
+          background: #8b4513;
+          color: #fff;
+        }
+
+        #no {
+          background: #adb5bd;
+          color: #333;
+        }
+
+        button:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1 id="title">Chocolate Day 🍫❤️</h1>
+
+    <p id="text">
+        They say chocolate makes people happy 😌<br>
+        But somehow… you already do that.<br><br>
+        Still, I brought chocolate.<br>
+        Because I’m not stupid.
+    </p>
+
+    <!-- Landing GIF: chocolate + waiting vibe -->
+    <img id="gif"
+         src="https://media.tenor.com/A-T3YM7Kx0oAAAAi/hungry-santa.gif"
+         alt="chocolate love gif">
+
+    <div>
+        <button id="yes">Share chocolate 🍫</button>
+        <button id="no">All mine 😏</button>
+    </div>
+</div>
+
+<script>
+    const title = document.getElementById("title");
+    const text  = document.getElementById("text");
+    const gif   = document.getElementById("gif");
+
+    document.getElementById("yes").onclick = () => {
+      title.textContent = "True love detected 😌🍫";
+      text.innerHTML = `
+        Sharing chocolate is a big deal.<br>
+        It means I love you.<br><br>
+        Or at least… love you more than chocolate ❤️
+      `;
+      gif.src = "https://media1.tenor.com/m/UyBQQiK4Jq0AAAAd/devil0707-devil0707gif.gif";
+    };
+
+    document.getElementById("no").onclick = () => {
+      title.textContent = "Rude. But expected 😏";
+      text.innerHTML = `
+        Okay fine 😌<br>
+        Keep the chocolate.<br>
+        I’ll just steal you instead 💍
+      `;
+      gif.src = "https://media1.tenor.com/m/SchnayqCPDQAAAAC/sorry-food.gif";
+    };
+</script>
+
+</body>
+</html>
