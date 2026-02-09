@@ -1,73 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Still You 😌💍</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .box {
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      text-align: center;
-      max-width: 90%;
-    }
-    h1 { color: #6a0572; }
-    p { line-height: 1.6; }
-    button {
-      padding: 12px 25px;
-      border-radius: 30px;
-      border: none;
-      font-size: 1.05rem;
-      margin: 8px;
-      cursor: pointer;
-    }
-    #yes { background: #ff4d6d; color: white; }
-    #no { background: #adb5bd; }
-  </style>
+    <meta charset="UTF-8">
+    <title>To My Wife ❤️</title>
+
+    <style>
+        body {
+          margin: 0;
+          height: 100vh;
+          font-family: 'Segoe UI', sans-serif;
+          background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+        }
+
+        .box {
+          background: white;
+          padding: 35px 30px;
+          border-radius: 22px;
+          text-align: center;
+          width: 380px;
+          box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+          animation: float 4s ease-in-out infinite;
+          position: relative;
+        }
+
+        @keyframes float {
+          0%,100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+          color: #ff4d6d;
+          margin-bottom: 12px;
+        }
+
+        p {
+          font-size: 16px;
+          color: #555;
+          line-height: 1.5;
+        }
+
+        img {
+          width: 100%;
+          border-radius: 16px;
+          margin: 18px 0;
+        }
+
+        .buttons {
+          position: relative;
+          height: 60px;
+        }
+
+        button {
+          padding: 12px 22px;
+          border: none;
+          border-radius: 25px;
+          cursor: pointer;
+          font-size: 14px;
+          transition: all 0.3s ease;
+          position: absolute;
+        }
+
+        #yes {
+          background: #ff4d6d;
+          color: white;
+          left: 40px;
+        }
+
+        #no {
+          background: #ccc;
+          color: #333;
+          right: 40px;
+        }
+
+        #yes:hover {
+          box-shadow: 0 6px 20px rgba(255,77,109,0.6);
+        }
+
+        .hearts {
+          position: absolute;
+          font-size: 20px;
+          animation: rise 4s linear infinite;
+        }
+
+        @keyframes rise {
+          0% { transform: translateY(0); opacity: 1; }
+          100% { transform: translateY(-600px); opacity: 0; }
+        }
+    </style>
 </head>
+
 <body>
 
 <div class="box">
-  <h1 id="title">I was thinking… 🤔💍</h1>
-  <p id="text">
-    We’ve lived at least 7 births together.<br>
-    Seen the best. Seen the worst 😌<br>
-    And somehow… I still smile every day.
-  </p>
+    <h1 id="title">To My Wife ❤️</h1>
 
-  <button id="yes">Still choose you ❤️</button>
-  <button id="no">You already did 😏</button>
+    <p id="text">
+        Life feels safer, warmer, and happier with you.<br>
+        Through every phase, every version of us,<br>
+        you are still my favorite person.
+    </p>
+
+    <p>
+        You make my world brighter just by being in it 💖<br>
+        Will you be mine forever?
+    </p>
+
+    <!-- Landing GIF (UPDATED) -->
+    <img id="gif"
+         src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif"
+         alt="Cute love gif">
+
+    <div class="buttons">
+        <button id="yes" onclick="yesClicked()">
+            I choose you. Always 💍
+        </button>
+
+        <button id="no" onmouseover="moveNoButton()">
+            No 🙃
+        </button>
+    </div>
 </div>
 
 <script>
-  const title = document.getElementById("title");
-  const text = document.getElementById("text");
+    let yesScale = 1;
 
-  document.getElementById("yes").onclick = () => {
-    title.textContent = "Last birth. Same choice 😌💖";
-    text.innerHTML = `
-      Knowing everything…<br>
-      every fight, every laugh,<br>
-      I’d still marry you again ❤️
-    `;
-  };
+    function yesClicked() {
+      document.getElementById("gif").src =
+        "https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif";
+      createHearts();
+    }
 
-  document.getElementById("no").onclick = () => {
-    text.innerHTML = `
-      True 😌<br>
-      But I’ll still keep choosing you.
-    `;
-  };
+    function moveNoButton() {
+      const noBtn = document.getElementById("no");
+      const yesBtn = document.getElementById("yes");
+
+      const randomX = Math.random() * 200;
+      const randomY = Math.random() * 40;
+
+      noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+      yesScale += 0.15;
+      yesBtn.style.transform = `scale(${yesScale})`;
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 12; i++) {
+        const heart = document.createElement("div");
+        heart.className = "hearts";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.bottom = "0px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 4000);
+      }
+    }
 </script>
 
 </body>
