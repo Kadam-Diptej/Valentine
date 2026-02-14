@@ -20,17 +20,19 @@
 
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             padding: 40px 50px;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             max-width: 90%;
+            position: relative;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #e63946;
             margin-bottom: 20px;
+            line-height: 1.6;
         }
 
         img {
@@ -46,7 +48,7 @@
         }
 
         button {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             padding: 12px 25px;
             border: none;
             border-radius: 30px;
@@ -95,68 +97,81 @@
 
 <body>
 
-    <div class="container">
-        <h1 id="title">Will you be my Valentine? 💖</h1>
+<div class="container">
+    <h1 id="title">Will you be my Valentine? 💖</h1>
 
-        <img id="gif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Begging eyes" />
+    <img id="gif"
+         src="https://media1.tenor.com/m/PZj7MRgBFbMAAAAd/will-you-be-my-valentine-valentines-day.gif"
+         alt="Begging eyes" />
 
-        <div class="buttons">
-            <button id="yesBtn">Yes 💕</button>
-            <button id="noBtn">No 😐</button>
-        </div>
+    <div class="buttons">
+        <button id="yesBtn">Yes 💕</button>
+        <button id="noBtn">No 😐</button>
     </div>
+</div>
 
-    <div class="hearts" id="hearts"></div>
+<div class="hearts" id="hearts"></div>
 
-    <script>
-        const noBtn = document.getElementById("noBtn");
-        const yesBtn = document.getElementById("yesBtn");
-        const gif = document.getElementById("gif");
-        const title = document.getElementById("title");
-        const heartsContainer = document.getElementById("hearts");
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const gif = document.getElementById("gif");
+    const title = document.getElementById("title");
+    const heartsContainer = document.getElementById("hearts");
 
-        // Make "No" button run away
-        noBtn.addEventListener("mouseenter", () => {
-            const container = document.querySelector(".container");
-            const containerRect = container.getBoundingClientRect();
+    // Make "No" button run away
+    noBtn.addEventListener("mouseenter", () => {
+        const container = document.querySelector(".container");
+        const containerRect = container.getBoundingClientRect();
 
-            const maxX = containerRect.width - noBtn.offsetWidth;
-            const maxY = containerRect.height - noBtn.offsetHeight;
+        const maxX = containerRect.width - noBtn.offsetWidth;
+        const maxY = containerRect.height - noBtn.offsetHeight;
 
-            const x = Math.random() * maxX;
-            const y = Math.random() * maxY;
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
 
-            noBtn.style.left = `${x}px`;
-            noBtn.style.top = `${y}px`;
-        });
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+    });
 
-        // Yes button behavior
-        yesBtn.addEventListener("click", () => {
-            title.textContent = "YAY!!! I knew you'd say yes 🥰💘";
-            gif.src = "https://media.giphy.com/media/3oz8xAFtqoOUUrsh7W/giphy.gif";
+    // YES button behavior
+    yesBtn.addEventListener("click", () => {
 
-            noBtn.style.display = "none";
-            yesBtn.style.display = "none";
+        title.innerHTML = `
+            Happy Valentine's Day! 💖<br><br>
+            Thanks for being my Valentine…<br>
+            even though we both know you got the better deal! 😌❤️<br>
+            Thanks for being my emergency contact,<br>
+            for making my heart race (mostly when you ride 😵),<br>
+            and for surviving my daily levels of annoying.<br><br>
+            I love you more today than yesterday…<br>
+            which is impressive, because yesterday, you were really annoying (just kidding).<br><br>
+        `;
 
-            startHearts();
-        });
+        gif.src = "https://media1.tenor.com/m/ElGUz9zaST4AAAAd/shark-tank-mr-wonderful.gif";
 
-        // Floating hearts animation
-        function startHearts() {
-            setInterval(() => {
-                const heart = document.createElement("div");
-                heart.classList.add("heart");
-                heart.textContent = "💖";
-                heart.style.left = Math.random() * 100 + "vw";
-                heart.style.fontSize = Math.random() * 20 + 20 + "px";
-                heartsContainer.appendChild(heart);
+        noBtn.style.display = "none";
+        yesBtn.style.display = "none";
 
-                setTimeout(() => {
-                    heart.remove();
-                }, 4000);
-            }, 300);
-        }
-    </script>
+        startHearts();
+    });
+
+    // Floating hearts animation
+    function startHearts() {
+        setInterval(() => {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.textContent = "💖";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = Math.random() * 20 + 20 + "px";
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }, 300);
+    }
+</script>
 
 </body>
 
